@@ -1,7 +1,12 @@
 package ex2;
 
 public class MiExcepcion extends Exception {
-	//mensaje de error
+	/**
+	 * Clase MiExcepcion
+	 * Es hijo de Exception
+	 * @author Bárbara, Pau, Oriol
+	 *
+	 */
 	private String mensaje;
 	
 	
@@ -16,6 +21,7 @@ public class MiExcepcion extends Exception {
 		this.mensaje = mensaje;
 	}
 	
+	//Método que devuelve el mensaje
 	@Override
 	public String getMessage() {
 		
