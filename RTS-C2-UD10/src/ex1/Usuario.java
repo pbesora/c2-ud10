@@ -17,7 +17,7 @@ public class Usuario {
 	//Constructor por defecto
 	public Usuario() {
 		this.nombre = nombre;
-		this.numIntentos = numIntentos;
+		this.numIntentos = 0;
 	}
 	
 	/**
