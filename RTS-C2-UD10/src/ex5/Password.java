@@ -1,7 +1,5 @@
 package ex5;
 
-import java.security.SecureRandom;
-import java.util.Scanner;
 
 public class Password {
 	/**
@@ -22,13 +20,12 @@ public class Password {
 	}
 
 	/**
-	 * Constructor con 2 parametros
+	 * Constructor con 1 parametro
 	 * @param longitud
-	 * @param contraseña
 	 */
-	public Password(int longitud, String contraseña) {
+	public Password(int longitud) {
 		this.longitud = longitud;
-		this.contraseña = contraseña;
+		generarPassword(longitud);
 	}
 
 
@@ -63,24 +60,23 @@ public class Password {
 	/* Método generarPassword
 	 * Genera la contraseña del objeto con la longitud que tenga
 	 */
-	public void generarPassword() {
-		/*Scanner sc = new Scanner(System.in);
-	        //Creamos la variable chars para tener todos los valores que pueda tener la contraseña
-	        final String chars = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789";
+	public void generarPassword(int longitud) {
+		//Creamos la variable chars para tener todos los valores que pueda tener la contraseña
+		String mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String minus = mayus.toLowerCase();
+		String nums = "1234567890";
+		String alfanum = mayus + minus + nums;
+		char caracteres[] = alfanum.toCharArray();
+		String pass = "";
+		int random;
+		
+		//Cada interacción del bucle elige aleatoriamente un carácter
+		for(int i=0; i<longitud; i++) {
+			random = (int) ((caracteres.length+1) * Math.random());
+			pass += caracteres[random];
+		}
 
-	        SecureRandom random = new SecureRandom();
-	        StringBuilder contraseña = new StringBuilder();
-
-	        //Pedimos el rango que queremos que tenga la contraseña
-	        System.out.println("Introduce la longitud de la contraseña:");
-	        int longi = sc.nextInt();
-
-	        //Cada interacción del bucle elige aleatoriamente un carácter, y lo agrega a la instancia "StringBuilder"
-	        for(int i=0; i<longi; i++) {
-	            int randomIndex = random.nextInt(chars.length());
-	            contraseña.append(chars.charAt(randomIndex));
-	        }
-	        this.contraseña = contraseña;*/
+		this.contraseña = pass;
 	}
 
 	// GETTERS Y SETTERS
