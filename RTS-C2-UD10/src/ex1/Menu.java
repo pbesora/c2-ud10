@@ -1,27 +1,20 @@
 package ex1;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.io.IOException;
 
 public class Menu {
 
 	private int randomValue;
-
-	private void lanzarError()  throws InputMismatchException {
-
-	}
+	private boolean loop = true;
 
 	private void generarValor() {
 		randomValue = (int) (Math.random()*500 + 1);
 	}
 
 	private void comprobarValor(String valor) {
-		try {
-			if(!valor.matches("[0-9]+")) {
-				lanzarError();
-			} 
-			int num = Integer.parseInt(valor);
+		int num;
+		if(valor.matches("[0-9]+")) {
+			num = Integer.parseInt(valor);
 
 			if(num > this.randomValue) {
 				System.out.println("El número escogido es mayor al número generado.");
@@ -30,19 +23,16 @@ public class Menu {
 
 			} else if(num == this.randomValue) {
 				System.out.println("Felicidades, has acertado el número.");
-
+				loop = false;
 			}
-
-		} catch(InputMismatchException e) {
+		}else {
+			System.out.println("El valor introducido no es válido.");
 		}
-
 	}
 
-	public String pedirValor() {
-		Scanner sc = new Scanner(System.in);
+	public String pedirValor(Scanner sc) {
 		System.out.println("Introduce un número entre el 1 y el 500.");
-		String num = sc.nextLine();
-		sc.close();
+		String num = sc.next();
 		return num;
 	}
 
@@ -50,19 +40,26 @@ public class Menu {
 	public void lanzarMenu() {
 		generarValor();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Bienvenido/a, ¿qué quieres hacer?");
+		int opcion;
+		
+		do {
+		System.out.println("\nBienvenido/a, ¿qué quieres hacer?");
 		System.out.println("1)Escribir un número. \n2)Número de intentos \n3)Salir.");
-		int opcion = sc.nextInt();
+		opcion = sc.nextInt();
 		switch(opcion) {
 		case 1:
-			String valor = pedirValor();
-			comprobarValor(valor);
+				comprobarValor(pedirValor(sc));
 			break;
 		case 2:
 			System.out.println();
 			break;
 		case 3:
+			loop = false;
+			break;
+		default:
 			break;
 		}
+		}while(loop);
+		sc.close();
 	}
 }
