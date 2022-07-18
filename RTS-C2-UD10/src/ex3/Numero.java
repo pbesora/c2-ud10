@@ -3,8 +3,16 @@ package ex3;
 import ex2.MiExcepcion;
 
 public class Numero {
+	/**
+	 * Clase Numero
+	 * Genera un número aleatorio y comprueba si es par o impar
+	 * @author Bárbara, Pau, Oriol
+	 *
+	 */
 	
-	
+	/* Método esPar
+	 * Comprueba si el número generado es par o impar
+	 */
 	public static boolean esPar(int num){
 		
 		
@@ -19,6 +27,10 @@ public class Numero {
 	    }
 	}
 	
+	/* Método lanzarNumero
+	 * Genera un número aleaatorio entre el 10 y el 0
+	 * Comprueba con el otro método y genera una Excepción
+	 */
 	public void lanzarNumero() throws MiExcepcion {
 		int numAleatorio = (int)(Math.random()*10+0);
 		if(esPar(numAleatorio)) {
