@@ -1,5 +1,6 @@
 package ex1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -26,7 +27,7 @@ public class Menu {
 				loop = false;
 			}
 		}else {
-			System.out.println("El valor introducido no es válido.");
+			throw new InputMismatchException();
 		}
 	}
 
@@ -48,7 +49,11 @@ public class Menu {
 		opcion = sc.nextInt();
 		switch(opcion) {
 		case 1:
+			try {
 				comprobarValor(pedirValor(sc));
+			}catch(InputMismatchException e){
+				System.out.println(e + " : El valor introducido no es válido.");
+			}
 			break;
 		case 2:
 			System.out.println();
