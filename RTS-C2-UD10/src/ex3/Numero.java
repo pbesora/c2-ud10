@@ -10,8 +10,10 @@ public class Numero {
 	 *
 	 */
 	
-	/* Método esPar
+	/** Método esPar
 	 * Comprueba si el número generado es par o impar
+	 * @param num
+	 * @return
 	 */
 	public static boolean esPar(int num){
 		

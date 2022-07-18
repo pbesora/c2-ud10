@@ -1,5 +1,7 @@
 package ex4Operaciones;
 
+import java.util.InputMismatchException;
+
 import javax.swing.JOptionPane;
 
 public class Operaciones {
@@ -39,11 +41,15 @@ public class Operaciones {
 	}
 	
 	public void raizCuadrada(Double a, Double b) { //try cacth a la hora de poner un num negativo
+		try {
 		a = PedirNum.getNum1();
 		b = PedirNum.getNum2();
 		resultado = Math.sqrt(a);
 		
 		JOptionPane.showMessageDialog(null, resultado);
+		} catch(InputMismatchException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
 	}
 	
 	public void raizCubica(Double a, Double b) {
@@ -55,11 +61,15 @@ public class Operaciones {
 	}
 
 	public void division(Double a, Double b) {//try catch al dividir por 0
+		try {
 		a = PedirNum.getNum1();
 		b = PedirNum.getNum2();
 		resultado = a / b;
 		
 		JOptionPane.showMessageDialog(null, resultado);
+		} catch(ArithmeticException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
 	}
 
 }

@@ -21,15 +21,20 @@ public class Password {
 		this.contraseña = "";
 	}
 
-	//Constructor pasado por parámetro
+	/**
+	 * Constructor con 2 parametros
+	 * @param longitud
+	 * @param contraseña
+	 */
 	public Password(int longitud, String contraseña) {
 		this.longitud = longitud;
 		this.contraseña = contraseña;
 	}
 
 
-	/* Método esFuerte
+	/** Método esFuerte
 	 * Devuelve un booleano si es fuerte o no
+	 * @return
 	 */
 	public boolean esFuerte() {
 		int cMayus = 0;
