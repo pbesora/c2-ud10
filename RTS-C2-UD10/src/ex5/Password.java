@@ -60,7 +60,7 @@ public class Password {
 	/* Método generarPassword
 	 * Genera la contraseña del objeto con la longitud que tenga
 	 */
-	public void generarPassword(int longitud) {
+	public String generarPassword(int longitud) {
 		//Creamos la variable chars para tener todos los valores que pueda tener la contraseña
 		String mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String minus = mayus.toLowerCase();
@@ -77,6 +77,7 @@ public class Password {
 		}
 
 		this.contraseña = pass;
+		return contraseña;
 	}
 
 	// GETTERS Y SETTERS
