@@ -16,19 +16,21 @@ public class mainApp {
 		String arrayContraseñas[] = new String [contraseñas];
 
 		String numCarcaters = JOptionPane.showInputDialog(null,"El número de caracteres que tendra la contraseña es: ");
-		int caracteres = Integer.parseInt (numCarcaters );
+		int longitud = Integer.parseInt (numCarcaters );
 
 		Boolean [] arrayEsFuerte = new Boolean[contraseñas];
 
-		for (int i=0; i<arrayContraseñas.length; i++) {
-			for (int y=0; y<arrayEsFuerte.length; y++) {	
-			arrayContraseñas[i] = password.generarPassword(caracteres);
-			arrayEsFuerte[y] = password.esFuerte();
-						
-			JOptionPane.showMessageDialog(null, "la contraseña " +i+ " es " +arrayContraseñas[i]+ " es fuerte " +arrayEsFuerte[y]);
-			i++;
+		for (int i=0; i<arrayContraseñas.length; i++) {	
+			arrayContraseñas[i] = password.generarPassword(longitud);
+
+			for (int z=0; z<arrayEsFuerte.length; z++) {
+
+				arrayEsFuerte[z]= password.esFuerte();
+
+				JOptionPane.showMessageDialog(null, "la contraseña " +i+ " es " +password.getContraseña()+ " es fuerte " +arrayEsFuerte[z]);
+				i++;
 			}
 		}
-			}
-		}
+	}
+}
 
