@@ -16,7 +16,7 @@ public class Password {
 	//Constructor por defecto
 	public Password() {
 		this.longitud = LONGITUD_D;
-		this.contraseña = "";
+		generarPassword(LONGITUD_D);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class Password {
 	/* Método generarPassword
 	 * Genera la contraseña del objeto con la longitud que tenga
 	 */
-	public String generarPassword(int longitud) {
+	public void generarPassword(int longitud) {
 		//Creamos la variable chars para tener todos los valores que pueda tener la contraseña
 		String mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String minus = mayus.toLowerCase();
@@ -72,12 +72,11 @@ public class Password {
 		
 		//Cada interacción del bucle elige aleatoriamente un carácter
 		for(int i=0; i<longitud; i++) {
-			random = (int) ((caracteres.length+1) * Math.random());
+			random = (int) ((caracteres.length) * Math.random());
 			pass += caracteres[random];
 		}
 
 		this.contraseña = pass;
-		return contraseña;
 	}
 
 	// GETTERS Y SETTERS

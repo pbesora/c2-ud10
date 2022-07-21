@@ -13,7 +13,7 @@ public class Operaciones {
 		b = PedirNum.getNum2();
 		resultado = a + b;
 		
-		JOptionPane.showMessageDialog(null, resultado);
+		JOptionPane.showMessageDialog(null, a + " + " + b + " = " + resultado);
 	}
 	
 	public void resta(Double a, Double b) {
@@ -21,7 +21,7 @@ public class Operaciones {
 		b = PedirNum.getNum2();
 		resultado = a - b;
 		
-		JOptionPane.showMessageDialog(null, resultado);
+		JOptionPane.showMessageDialog(null, a + " - " + b + " = " + resultado);
 	}
 	
 	public void multiplicacion(Double a, Double b) {
@@ -29,7 +29,7 @@ public class Operaciones {
 		b = PedirNum.getNum2();
 		resultado = a * b;
 		
-		JOptionPane.showMessageDialog(null, resultado);
+		JOptionPane.showMessageDialog(null, a + " * " + b + " = " + resultado);
 	}
 	
 	public void potencia(Double a, Double b) {
@@ -37,27 +37,25 @@ public class Operaciones {
 		b = PedirNum.getNum2();
 		resultado = Math.pow(a, b);
 		
-		JOptionPane.showMessageDialog(null, resultado);
+		JOptionPane.showMessageDialog(null, a + " ^ " + b + " = " + resultado);
 	}
 	
-	public void raizCuadrada(Double a, Double b) { //try cacth a la hora de poner un num negativo
+	public void raizCuadrada(Double a) { //try cacth a la hora de poner un num negativo
 		try {
 		a = PedirNum.getNum1();
-		b = PedirNum.getNum2();
 		resultado = Math.sqrt(a);
 		
-		JOptionPane.showMessageDialog(null, resultado);
+		JOptionPane.showMessageDialog(null, "Raiz cuadrada de " + a + " = " + resultado);
 		} catch(InputMismatchException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 	}
 	
-	public void raizCubica(Double a, Double b) {
+	public void raizCubica(Double a) {
 		a = PedirNum.getNum1();
-		b = PedirNum.getNum2();
 		resultado = Math.cbrt(a);
 		
-		JOptionPane.showMessageDialog(null, resultado);
+		JOptionPane.showMessageDialog(null, "Raiz cúbica de " + a + " = " + resultado);
 	}
 
 	public void division(Double a, Double b) {//try catch al dividir por 0
@@ -66,7 +64,7 @@ public class Operaciones {
 		b = PedirNum.getNum2();
 		resultado = a / b;
 		
-		JOptionPane.showMessageDialog(null, resultado);
+		JOptionPane.showMessageDialog(null, a + " / " + b + " = " + resultado);
 		} catch(ArithmeticException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}

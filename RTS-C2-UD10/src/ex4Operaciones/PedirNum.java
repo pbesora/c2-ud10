@@ -1,7 +1,5 @@
 package ex4Operaciones;
 
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class PedirNum {
